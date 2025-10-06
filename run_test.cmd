@@ -1,0 +1,1 @@
+uv run robot --outputdir Results --timestampoutputs --loglevel TRACE:INFO app_tester.robot
