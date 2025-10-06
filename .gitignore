@@ -1,0 +1,12 @@
+*
+
+!.gitignore
+!readme.md
+
+# Dependency control files
+!*.toml
+!uv.lock
+!.python-version
+
+# Project files
+!**.robot
