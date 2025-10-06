@@ -1,0 +1,12 @@
+[project]
+name = "test-automation-eshop-mock"
+version = "0.0"
+description = "Test automation for a mocked web shop to learn how to use robot framework"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "robotframework>=7.3.2",
+    "robotframework-seleniumlibrary>=6.8.0",
+    "selenium>=4.36.0",
+    "webdriver-manager>=4.0.2",
+]
