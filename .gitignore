@@ -9,5 +9,7 @@
 !.python-version
 
 # Project files
+/customKeywords/*
 !**.robot
 !*.cmd
+!**.py
