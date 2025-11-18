@@ -11,16 +11,23 @@ ${BROWSER}        Chrome
 Web App Functional
     Open Web App
 
-Add Orange To Cart
+Cart Is Empty
     Open Web App
     Open Cart
     Cart is empty
-    Find Product From Grid    Orange
+
+Add Orange To Cart
+    Open Web App
+    Add To Cart    Orange
 
 *** Keywords ***
 Open Web App
     Open Browser    ${URL}    ${BROWSER}
     Title Should Be    Mock Web App
+
+Open Product Grid
+    # Go back to the home view, where all the products are
+    Click Element    //a[@href='index.html']
 
 Open Cart
     Click Element    //a[@href='shopping_cart.html']
@@ -28,3 +35,8 @@ Open Cart
 Cart is empty
     # Fails if cart is not empty
     Page Should Contain    Your shopping cart is empty.
+
+Add To Cart
+    # Add given 
+    [Arguments]     ${product}
+    Page Should Contain Element    //div[@class='productContainer'][.//*[text()='${product}']]
