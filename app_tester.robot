@@ -20,6 +20,7 @@ Add Orange To Cart
     Open Web App
     Add To Cart    Orange
     Open Cart
+    Cart contains    Orange
 
 *** Keywords ***
 Open Web App
@@ -36,6 +37,10 @@ Open Cart
 Cart is empty
     # Fails if cart is not empty
     Page Should Contain    Your shopping cart is empty.
+
+Cart contains
+    [Arguments]     ${product}
+    Page Should Contain Element    //tr[.//*[text()='${product}']]
 
 Add To Cart
     # Add given Product to shopping cart
