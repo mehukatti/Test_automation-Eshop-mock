@@ -19,6 +19,7 @@ Cart Is Empty
 Add Orange To Cart
     Open Web App
     Add To Cart    Orange
+    Open Cart
 
 *** Keywords ***
 Open Web App
@@ -37,6 +38,7 @@ Cart is empty
     Page Should Contain    Your shopping cart is empty.
 
 Add To Cart
-    # Add given 
+    # Add given Product to shopping cart
     [Arguments]     ${product}
     Page Should Contain Element    //div[@class='productContainer'][.//*[text()='${product}']]
+    Click Button    //div[@class='productContainer'][.//*[text()='${product}']]//button
