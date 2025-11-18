@@ -9,7 +9,9 @@
 !.python-version
 
 # Project files
-/customKeywords/*
+!customKeywords/
+!customKeywords/**
+**/__pycache__/**
 !**.robot
 !*.cmd
-!**.py
+!*.py
