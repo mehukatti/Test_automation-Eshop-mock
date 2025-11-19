@@ -2,6 +2,7 @@
 Documentation     Simple example using SeleniumLibrary.
 Library           SeleniumLibrary
 Library           customKeywords/locators.py
+Suite Teardown    Close All Browsers
 
 *** Variables ***
 ${URL}    https://mehukatti.github.io/mock_web_app/
@@ -11,10 +12,10 @@ ${BROWSER}        Chrome
 Web App Functional
     Open Web App
 
-Cart Is Empty
+View Empty Cart
     Open Web App
     Open Cart
-    Cart is empty
+    Cart Is Empty
 
 Add Orange To Cart
     Open Web App
@@ -32,9 +33,9 @@ Open Product Grid
     Click Element    //a[@href='index.html']
 
 Open Cart
-    Click Element    //a[@href='shopping_cart.html']
+    Click Element    //a[@href='shoppingCart.html']
 
-Cart is empty
+Cart Is Empty
     # Fails if cart is not empty
     Page Should Contain    Your shopping cart is empty.
 
