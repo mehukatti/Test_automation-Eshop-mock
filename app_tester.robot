@@ -20,12 +20,14 @@ View Empty Cart
 Add Orange To Cart
     Open Web App
     Update Cart Quantity    3    Orange
+    Cart Quantity According To Product Grid    3    Orange
     Open Cart
     Cart View Contains    3    Orange
 
 Add Orange To Cart With Plus
     Open Web App
     Add To Cart    Orange
+    Cart Quantity According To Product Grid    1    Orange
     Open Cart
     Cart View Contains    1    Orange
 
@@ -33,8 +35,17 @@ Update Orange Quantity
     Open Web App
     Update Cart Quantity    3    Orange
     Add to Cart    Orange
+    Cart Quantity According To Product Grid    4    Orange
     Open Cart
     Cart View Contains    4    Orange
+
+Add And Minus Pineapple Quantity
+    Open Web App
+    Update Cart Quantity    10    Pineapple
+    Minus From Cart    Pineapple
+    Cart Quantity According To Product Grid    9    Pineapple
+    Open Cart
+    Cart View Contains    9    Pineapple
 
 *** Keywords ***
 Open Web App

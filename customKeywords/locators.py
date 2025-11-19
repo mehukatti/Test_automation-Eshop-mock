@@ -11,11 +11,27 @@ def find_product_from_grid(product_name: str):
     seleniumlib = get_webdriver_instance()
     return
 
+"""Quantity in cart can be seen from the input field in all different pages"""
+
+def _check_value_is_expected(xpath, expected_value):
+    seleniumlib = get_webdriver_instance()
+    value = seleniumlib.get_element_attribute(xpath, "value")
+    assert int(value) == expected_value, f"Expected value was {expected_value}; Got {value}."
+
+def cart_quantity_according_to_product_grid(quantity: int, product: str):
+    """Check that the cart contains given quantity of the product
+    by checking the input value in product grid"""
+    _check_value_is_expected(
+        f"//div[@class='productContainer'][.//*[text()='{product}']]//input",
+        quantity
+    )
+
 def cart_view_contains(quantity: int, product: str):
     """Check that the cart contains given quantity of the product."""
-    seleniumlib = get_webdriver_instance()
-    value = seleniumlib.get_element_attribute(f"//tr[.//*[text()='{product}']]//input", "value")
-    assert int(value) == quantity, f"Expected quantity of product was {quantity}"
+    _check_value_is_expected(
+        f"//tr[.//*[text()='{product}']]//input",
+        quantity
+    )
 
 """There is two ways to edit the cart contents.
 1. Input field
@@ -24,13 +40,24 @@ def cart_view_contains(quantity: int, product: str):
 def update_cart_quantity(quantity: int, product: str):
     """Add given quantity of the product to the cart"""
     seleniumlib = get_webdriver_instance()
-    input_xpath = f"//div[@class='productContainer'][.//*[text()='{product}']]//input"
-    input_element = seleniumlib.find_element(input_xpath)
+    input_element = seleniumlib.find_element(
+        f"//div[@class='productContainer'][.//*[text()='{product}']]//input"
+    )
     input_element.clear()
     input_element.send_keys(quantity)
 
 def add_to_cart(product:str):
     """Use plus button to add product to cart."""
     seleniumlib = get_webdriver_instance()
-    plus_button = seleniumlib.find_element(f"//div[@class='productContainer'][.//*[text()='{product}']]//button/div[@class='glyphicon glyphicon-plus']")
+    plus_button = seleniumlib.find_element(
+        f"//div[@class='productContainer'][.//*[text()='{product}']]//button/div[@class='glyphicon glyphicon-plus']"
+    )
+    plus_button.click()
+
+def minus_from_cart(product:str):
+    """Use minus button to remove one unit of the product to cart."""
+    seleniumlib = get_webdriver_instance()
+    plus_button = seleniumlib.find_element(
+        f"//div[@class='productContainer'][.//*[text()='{product}']]//button/div[@class='glyphicon glyphicon-minus']"
+    )
     plus_button.click()
