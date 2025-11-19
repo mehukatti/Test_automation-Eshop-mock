@@ -7,10 +7,6 @@ def get_webdriver_instance():
     seleniumlib = BuiltIn().get_library_instance('SeleniumLibrary')
     return seleniumlib
 
-def find_product_from_grid(product_name: str):
-    seleniumlib = get_webdriver_instance()
-    return
-
 """Quantity in cart can be seen from the input field in all different pages"""
 
 def _check_value_is_expected(xpath, expected_value):
