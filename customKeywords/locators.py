@@ -11,7 +11,7 @@ def find_product_from_grid(product_name: str):
     seleniumlib = get_webdriver_instance()
     return
 
-def cart_contains(quantity: int, product: str):
+def cart_view_contains(quantity: int, product: str):
     """Check that the cart contains given quantity of the product."""
     seleniumlib = get_webdriver_instance()
     value = seleniumlib.get_element_attribute(f"//tr[.//*[text()='{product}']]//input", "value")

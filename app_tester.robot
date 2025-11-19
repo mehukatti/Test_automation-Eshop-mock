@@ -21,13 +21,20 @@ Add Orange To Cart
     Open Web App
     Update Cart Quantity    3    Orange
     Open Cart
-    Cart Contains    3    Orange
+    Cart View Contains    3    Orange
 
 Add Orange To Cart With Plus
     Open Web App
     Add To Cart    Orange
     Open Cart
-    Cart Contains    1    Orange
+    Cart View Contains    1    Orange
+
+Update Orange Quantity
+    Open Web App
+    Update Cart Quantity    3    Orange
+    Add to Cart    Orange
+    Open Cart
+    Cart View Contains    4    Orange
 
 *** Keywords ***
 Open Web App
