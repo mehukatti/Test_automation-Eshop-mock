@@ -19,9 +19,9 @@ View Empty Cart
 
 Add Orange To Cart
     Open Web App
-    Add To Cart    Orange    3
+    Add To Cart    3    Orange
     Open Cart
-    Cart contains    Orange    3
+    Cart Contains    3    Orange
 
 *** Keywords ***
 Open Web App
@@ -38,19 +38,3 @@ Open Cart
 Cart Is Empty
     # Fails if cart is not empty
     Page Should Contain    Your shopping cart is empty.
-
-Cart contains
-    [Arguments]     ${product}    ${quantity}
-    Page Should Contain Element    //tr[.//*[text()='${product}']]/th[4][text()='${quantity} kg']
-
-Add To Cart
-    # Add given Product to shopping cart
-    [Arguments]     ${product}    ${quantity}
-    Page Should Contain Element    //div[@class='productContainer'][.//*[text()='${product}']]
-
-    # Change the quantity
-    Clear Element Text  xpath=//div[@class='productContainer'][.//*[text()='${product}']]//input
-    Press Keys    //div[@class='productContainer'][.//*[text()='${product}']]//input    ${quantity}
-
-    # Add to cart
-    Click Button    //div[@class='productContainer'][.//*[text()='${product}']]//button
