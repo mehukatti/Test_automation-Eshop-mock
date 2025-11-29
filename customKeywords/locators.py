@@ -50,7 +50,7 @@ def add_to_cart(product:str):
     """Use plus button to add product to cart."""
     seleniumlib = _get_webdriver_instance()
     plus_button = seleniumlib.find_element(
-        f"//div[@class='productContainer'][.//*[text()='{product}']]//button/div[@class='glyphicon glyphicon-plus']"
+        f"//div[@class='productContainer'][.//*[text()='{product}']]//button/i[@class='bi bi-plus']"
     )
     plus_button.click()
 
@@ -59,6 +59,6 @@ def minus_from_cart(product:str):
     """Use minus button to remove one unit of the product to cart."""
     seleniumlib = _get_webdriver_instance()
     plus_button = seleniumlib.find_element(
-        f"//div[@class='productContainer'][.//*[text()='{product}']]//button/div[@class='glyphicon glyphicon-minus']"
+        f"//div[@class='productContainer'][.//*[text()='{product}']]//button/i[@class='bi bi-dash']"
     )
     plus_button.click()
