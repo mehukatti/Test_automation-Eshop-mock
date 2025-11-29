@@ -42,6 +42,7 @@ def update_cart_quantity(quantity: int, product: str):
     input_element = seleniumlib.find_element(
         f"//div[@class='productContainer'][.//*[text()='{product}']]//input"
     )
+    seleniumlib.scroll_element_into_view(input_element)
     input_element.clear()
     input_element.send_keys(quantity)
 
@@ -52,13 +53,15 @@ def add_to_cart(product:str):
     plus_button = seleniumlib.find_element(
         f"//div[@class='productContainer'][.//*[text()='{product}']]//button/i[@class='bi bi-plus']"
     )
+    seleniumlib.scroll_element_into_view(plus_button)
     plus_button.click()
 
 @keyword("Minus From Cart")
 def minus_from_cart(product:str):
     """Use minus button to remove one unit of the product to cart."""
     seleniumlib = _get_webdriver_instance()
-    plus_button = seleniumlib.find_element(
+    minus_button = seleniumlib.find_element(
         f"//div[@class='productContainer'][.//*[text()='{product}']]//button/i[@class='bi bi-dash']"
     )
-    plus_button.click()
+    seleniumlib.scroll_element_into_view(minus_button)
+    minus_button.click()
