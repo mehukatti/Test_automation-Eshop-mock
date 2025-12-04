@@ -6,7 +6,7 @@ Test Setup       Open Web App
 Test Teardown    Close Browser
 
 *** Variables ***
-${URL}    https://mehukatti.github.io/mock_web_app/
+${URL}    https://bittikatti.github.io/mock_web_app/
 ${BROWSER}        Chrome
 
 *** Test Cases ***
